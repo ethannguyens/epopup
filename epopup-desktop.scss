@@ -1,0 +1,84 @@
+//pop up for item info
+.js-popup-lock {
+  overflow: visible;
+
+  body {
+    overflow: hidden;
+  }
+
+  //styling for IE9ish
+  &.isIE9ish {
+    overflow: visible;
+
+    body {
+      overflow: hidden;
+    }
+
+    .popup-overlay {
+      background: transparent;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#20000000, endColorstr=#20000000);
+      zoom: 1;
+
+      .popup-close {
+        top: 25px;
+      }
+    }
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 200ms;
+  display: none;
+  opacity: 0;
+  text-align: center;
+  color: #444444;
+
+  &.active {
+    transition: opacity 500ms;
+    display: block;
+    opacity: 1;
+    z-index: 9999999;
+  }
+
+  .popupContainer {
+    box-shadow: 0 0 25px #666666;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    overflow: scroll;
+    background-color: #ffffff;
+    max-height: 100%;
+  }
+
+  .popupContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 15px;
+    width: 15px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAUBJREFUKBWFkb9Kw1AUxntbEhA3q0OTIVAQB8ElGcxqBxcd9B1KNzv1aRydxLFCXdRJsgR8ifQRpJBI4vdFjpzeXtvA4f7J9zvnfPeYJEkemqY58n3/JsuyVWfHF8fxAJIXY8xjF5tDxGVZls9pmu5tYwkCeofmDAUPup7n3eLiFRcX2xIICOgE2vs8z2eGlVixqqo5foxwfIOFK23BAU5QsGHbHQrRwbV0wERi4T+QXFuZG366AyaCjTG6WKhW24q/agu2E+D8hdhH0OMaSG3bNjfy0QIr4izgEtWn9CgaWTdgemSrELDiEhHqNxCQ6xpsPw6SHNM7p+BK8AfbID3qKbgStK/tArVHewocKxObXaB4dCXoBUHwAcEpwjkOgYui+I6i6Kmu63NawDrshWHYh+ATHu90qwLpVSUY4n7+A5XL5B1u5HAeAAAAAElFTkSuQmCC');
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s linear;
+    z-index: 9999999;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .popupContent {
+    height: 100%;
+  }
+}
